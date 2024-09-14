@@ -23,7 +23,15 @@ input {
 }
 
 .btn {
-    padding: 0.3rem 1rem;
+    padding: 0.5rem 1rem;
     margin-top: 1rem;
+    color: white;
+    font-size: large;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
 }
 
+.btn:disabled {
+    background-color: rgb(210, 210, 210);
+}

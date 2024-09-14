@@ -66,5 +66,8 @@ function updateData() {
     jQuery.ajaxSetup({ async: true });
 }
 ```
+## Usage
+![Demo showing how to insert data in Student DB and update exisiting data](https://github.com/user-attachments/assets/f9530476-68f1-42b0-a605-e41a56cbe50c)
+
 
 **Project status** ✅ 

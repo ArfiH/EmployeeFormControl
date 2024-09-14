@@ -85,19 +85,19 @@ function disableAll() {
 }
 
 function findRoll(elem) {
-  var roll = elem.value;
-  var obj = {
+  let roll = elem.value;
+  let obj = {
     rollNo: roll,
   };
-  var jsnobj = JSON.stringify(obj);
-  var request = createGET_BY_KEYRequest(
+  let jsnobj = JSON.stringify(obj);
+  let request = createGET_BY_KEYRequest(
     token,
     studentDBName,
     studentRelationame,
     jsnobj
   );
   jQuery.ajaxSetup({ async: false });
-  var res = executeCommand(request, "/api/irl");
+  let res = executeCommand(request, "/api/irl");
   jQuery.ajaxSetup({ async: true });
   if (res.status == 400) {
     $("#fullName").prop("disabled", false);
@@ -119,7 +119,7 @@ function findRoll(elem) {
     $("#save").prop("disabled", true);
     $("#update").prop("disabled", false);
     // console.log(res);
-    var data = JSON.parse(res.data).record;
+    let data = JSON.parse(res.data).record;
     console.log(data);
     $("#fullName").val(data.fullName);
     $("#studentClass").val(data.studentClass);
@@ -144,7 +144,7 @@ function saveStudent() {
   console.log(putReqStr);
 
   jQuery.ajaxSetup({ async: false });
-  var resultObj = executeCommandAtGivenBaseUrl(
+  let resultObj = executeCommandAtGivenBaseUrl(
     putReqStr,
     "http://api.login2explore.com:5577",
     "/api/iml"
@@ -156,12 +156,12 @@ function saveStudent() {
 }
 
 function updateData(){
-    var roll = $("#rollNo").val();
-    var name = $("#fullName").val()
-    var cls = $("#studentClass").val();
-    var dob = $("#dob").val();
-    var addr = $("#address").val();
-    var enrollment = $("#enrollment").val();
+    let roll = $("#rollNo").val();
+    let name = $("#fullName").val()
+    let cls = $("#studentClass").val();
+    let dob = $("#dob").val();
+    let addr = $("#address").val();
+    let enrollment = $("#enrollment").val();
     if(name==''){
         $("#fullName").focus();
         return;
@@ -178,7 +178,7 @@ function updateData(){
         $("#enrollment").focus();
         return;
     }
-    var obj = {
+    let obj = {
         rollNo: roll,
         fullName: name,
         studentClass: cls,
@@ -186,10 +186,10 @@ function updateData(){
         address: addr,
         enrollment: enrollment
     };
-    var jsonobj = JSON.stringify(obj);
-    var req=createSETRequest(token,jsonobj, studentDBName, studentRelationame,'UPDATE','rollNo');
+    let jsonobj = JSON.stringify(obj);
+    let req=createSETRequest(token,jsonobj, studentDBName, studentRelationame,'UPDATE','rollNo');
     jQuery.ajaxSetup({ async: false });
-    var res = executeCommand(req, "/api/iml/set");
+    let res = executeCommand(req, "/api/iml/set");
     jQuery.ajaxSetup({ async: true });
     console.log(res);
     disableAll();
